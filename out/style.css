@@ -1,0 +1,14 @@
+.nav button {
+  margin-top: 10px; }
+
+.task {
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid #ddd; }
+  .task button {
+    margin-right: 20px; }
+  .task p {
+    margin: 0;
+    padding: 6px 0; }
+
+.done p {
+  color: #ddd; }

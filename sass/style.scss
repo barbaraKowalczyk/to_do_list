@@ -1,0 +1,28 @@
+
+$border-color: #ddd;
+$inactive-text: #ddd;
+
+
+.nav button {
+  margin-top:10px;
+}
+.task {
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid $border-color;
+  button {
+    margin-right: 20px;
+  }
+  p{
+    margin: 0;
+    padding:6px 0  ;
+  }
+
+
+}
+
+
+.done {
+  p {
+    color: $inactive-text;
+  }
+}
