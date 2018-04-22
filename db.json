@@ -1,44 +1,36 @@
 {
-  "tomorrowTasks": [
-    {
-      "id": "2018-04-22T09:08:29.316Z",
-      "name": "wwwww",
-      "status": "done",
-      "date": "23-04-2018"
-    },
-    {
-      "id": "2018-04-22T09:08:35.454Z",
-      "name": "wwwwwwwwwwww",
-      "status": "done",
-      "date": "23-04-2018"
-    },
-    {
-      "id": "2018-04-22T09:08:39.596Z",
-      "name": "wwwwwwwwwwwwwwwwwwwwww",
-      "status": "done",
-      "date": "23-04-2018"
-    }
-  ],
+  "tomorrowTasks": [],
   "todayTasks": [
     {
-      "id": "2018-04-22T09:06:06.439Z",
-      "name": "Chce dzis",
+      "id": "2018-04-22T09:34:58.487Z",
+      "name": "",
+      "status": "active",
+      "date": "22-04-2018"
+    },
+    {
+      "id": "2018-04-22T09:34:59.551Z",
+      "name": "",
+      "status": "active",
+      "date": "22-04-2018"
+    },
+    {
+      "id": "2018-04-22T09:34:59.934Z",
+      "name": "",
+      "status": "active",
+      "date": "22-04-2018"
+    },
+    {
+      "id": "2018-04-22T09:35:00.133Z",
+      "name": "",
+      "status": "active",
+      "date": "22-04-2018"
+    },
+    {
+      "id": "2018-04-22T09:35:00.547Z",
+      "name": "",
       "status": "active",
       "date": "22-04-2018"
     }
   ],
-  "someDayTasks": [
-    {
-      "id": "2018-04-22T09:04:06.466Z",
-      "name": "",
-      "status": "active",
-      "date": "some day"
-    },
-    {
-      "id": "2018-04-22T09:04:12.839Z",
-      "name": "wddadD",
-      "status": "active",
-      "date": "some day"
-    }
-  ]
+  "someDayTasks": []
 }

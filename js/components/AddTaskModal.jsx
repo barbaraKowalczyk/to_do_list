@@ -15,7 +15,7 @@ export class AddTaskModal extends React.Component {
         this.state = {
             show: false,
             name:"",
-            when:"today"
+            when:"todayTasks"
         };
     }
 
@@ -46,8 +46,12 @@ export class AddTaskModal extends React.Component {
             const name = e.target.value.replace(/\d/g,
                 '');
             this.props.onClick(this.state.name, this.state.when);
-            this.setState({ show: false })
         }
+    }
+
+    handleNewTaskAndClose = (e) => {
+        this.handleNewTaskAdd(e);
+        this.setState({ show: false })
     }
     render() {
 
@@ -95,7 +99,7 @@ export class AddTaskModal extends React.Component {
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.handleNewTaskAdd}>dodaj</Button>
-
+                        <Button onClick={this.handleNewTaskAndClose}>dodaj i zamknij</Button>
                     </Modal.Footer>
                 </Modal>
             </div>

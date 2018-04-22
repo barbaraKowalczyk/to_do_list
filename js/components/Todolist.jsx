@@ -215,13 +215,14 @@ export class Todolist extends React.Component {
 
     renderTasks(when){
         let tasks = this.checkArray(when)
+        if (tasks.length>0) {
         return tasks.map(el => {
             return <ToDoItem
                 value={el.name} status={el.status}
                 delete={() => this.deleteTask(el.id,when)}
                 done={()=>this.doneTask(el.id, when)}
             />
-        })
+        })} else return <p className="watermark">Wszystko zrobione</p>
     }
 
     render() {
@@ -271,7 +272,6 @@ export class Todolist extends React.Component {
                             <Panel.Collapse>
                                 <Panel.Body>
                                     {this.renderTasks("tomorrowTasks")}
-
                                 </Panel.Body>
                             </Panel.Collapse>
                         </Panel>

@@ -4,11 +4,18 @@
 .task {
   padding: 5px 0 5px 0;
   border-bottom: 1px solid #ddd; }
+  .task:last-child {
+    border: 0; }
   .task button {
     margin-right: 20px; }
   .task p {
     margin: 0;
     padding: 6px 0; }
+
+.watermark {
+  color: #ddd;
+  font-size: 20px;
+  text-align: center; }
 
 .done p {
   color: #ddd; }
