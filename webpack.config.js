@@ -1,8 +1,9 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+
 module.exports = {
-    entry: ['whatwg-fetch','./js/index.jsx'],
+    entry: ['whatwg-fetch','./js/index.jsx','moment'],
     output: {
         filename: "out.js",
         path: path.resolve(__dirname, 'out')
@@ -43,6 +44,8 @@ module.exports = {
             }
 
         ],
+
+
 
 
 }, plugins: [

@@ -1,6 +1,7 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch'
 import style from '../../sass/style.scss';
+import moment from 'moment'
 
 import {Panel} from 'react-bootstrap';
 import {Grid} from 'react-bootstrap';
@@ -11,31 +12,25 @@ import {Nav} from 'react-bootstrap';
 import {NavItem} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import {AddTaskModal} from "./AddTaskModal";
-
-
-
-
 import  {ToDoItem} from './ToDoItem';
 
 
 export class Todolist extends React.Component {
-    api ="http://localhost:3000/tasks" ;
+    api ="http://localhost:3000" ;
 
     constructor(props, context) {
         super(props, context);
         this.state = {
             open: true,
-            tasks:[],
-            ids:0,
+            todayTasks:[],
+            tomorrowTasks:[],
+            someDayTasks:[],
         };
     }
 
 // Operations on array of tasks
-    getMaxProperty(arrayOfObjects, property) {
-        const arrayOfValues = arrayOfObjects.map(obj => obj[property]);
-        return Math.max(...arrayOfValues);
-    }
-     sortByKey(array, key) {
+
+    sortByKey(array, key) {
         return array.sort(function(a, b) {
             var x = a[key];
             var y = b[key];
@@ -53,34 +48,51 @@ export class Todolist extends React.Component {
         });
     }
 
+    checkArray(when){
+        let tasks
+        if (when==="todayTasks")
+        {tasks= this.state.todayTasks}
+        else if (when==="tomorrowTasks")
+            {tasks=this.state.tomorrowTasks}
+            else   {tasks=this.state.someDayTasks}
+        return tasks
+    }
+
+
 // Update db and state of the task's list
     getTasks(){
-        fetch(this.api,{
+        fetch(this.api+"/todayTasks",{
             method:'get',}
         )
             .then(r => r.json())
             .then( data => {
-                console.log(data);
                 this.sortByKey(data,"status");
-                this.setState({tasks:data});
+                this.setState({todayTasks:data});
+            });
 
+        fetch(this.api+"/tomorrowTasks",{
+            method:'get',}
+        )
+            .then(r => r.json())
+            .then( data => {
+                this.sortByKey(data,"status");
+                this.setState({tomorrowTasks:data});
+            });
+
+        fetch(this.api+"/someDayTasks",{
+            method:'get',}
+        )
+            .then(r => r.json())
+            .then( data => {
+                this.sortByKey(data,"status");
+                this.setState({someDayTasks:data});
             });
     }
 
-    assignId(){
-        let lastId=this.state.ids;
-        let newId=lastId+11;
-
-        this.setState(()=>{
-            return {ids:newId}});
-
-        return newId;
-    }
-
-    addTask = (name) => {
-        let id = this.assignId();
-        let date = new Date();
-        date.getDate();
+    addTask = (name,when) => {
+        console.log("dodane"+when)
+        let id = moment();
+        let date = moment().format("DD-MM-YYYY");
 
         let task = {
             id: id,
@@ -89,7 +101,7 @@ export class Todolist extends React.Component {
             date:date
         }
 
-        fetch(this.api, {
+        fetch(this.api+"/"+when, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             withCredentials: true,
@@ -104,8 +116,9 @@ export class Todolist extends React.Component {
     }
 
 
-    deleteTask(id) {
-        var url = this.api+"/"+id;
+    deleteTask(id,when) {
+        var url = this.api+"/"+when+"/"+id;
+        var url = this.api+"/"+when+"/"+id;
         fetch(url, {
                 method: 'DELETE',
             })
@@ -117,20 +130,27 @@ export class Todolist extends React.Component {
             })
     }
 
-    removeAllDone(){
-        for(var i =  this.state.tasks.length-1; i >=0; i--) {
-            if(this.state.tasks[i].status === "done") {
-               this.deleteTask(this.state.tasks[i].id);
+    removeTasksFromArray(when){
+        let tasks = this.checkArray(when)
+        for(var i =  tasks.length-1; i >=0; i--) {
+            if(tasks[i].status === "done") {
+               this.deleteTask(tasks[i].id,when);
             }
         }
     }
 
-    doneTask(id){
-        var index = this.state.tasks.map(function(task) {return task.id;}).indexOf(id);
+    removeAllDone(){
+        this.removeTasksFromArray("tomorrowTasks");
+        this.removeTasksFromArray("todayTasks");
+        this.removeTasksFromArray("someDayTasks");
+    }
 
-        let task = this.state.tasks[index];
+    doneTask(id,when){
+        let tasks=this.checkArray(when)
+        var index = tasks.map(function(task) {return task.id;}).indexOf(id);
+        let task = tasks[index];
         task.status = "done"
-        var url = this.api+"/"+id;
+        var url = this.api+"/"+when+"/"+id;
         fetch(url, {
             method: 'PUT',
             headers: {"Content-Type": "application/json"},
@@ -149,21 +169,19 @@ export class Todolist extends React.Component {
 // Get initial state of the list
     componentWillMount() {
         this.getTasks();
-        let tasks=this.state.tasks;
-        const newId = this.getMaxProperty(tasks,"status")+1;
-        this.setState(()=>{
-            return {ids:newId}});
     }
 
 // Render elements of the list
-    renderTask(i) {
-        return (
-            <ToDoItem
-                value={this.state.tasks[i].name} status={this.state.tasks[i].status}
-                delete={() => this.deleteTask(this.state.tasks[i].id)}
-                done={()=>this.doneTask(this.state.tasks[i].id)}
+
+    renderTasks(when){
+        let tasks = this.checkArray(when)
+        return tasks.map(el => {
+            return <ToDoItem
+                value={el.name} status={el.status} date={el.date}
+                delete={() => this.deleteTask(el.id,when)}
+                done={()=>this.doneTask(el.id, when)}
             />
-        );
+        })
     }
 
     render() {
@@ -174,18 +192,19 @@ export class Todolist extends React.Component {
                     <Col xs={12}>
 
                         <Navbar>
-                            <Navbar.Header>
+                            <Col xs={12} sm={4} md={2}>
                                 <h1>To do list</h1>
-                            </Navbar.Header>
-                            <Nav>
-                                <NavItem>
-                                    <AddTaskModal onClick={this.addTask}/>
-
-                                </NavItem>
-                                <NavItem>
-                                    <Button onClick={()=>this.removeAllDone()}>Remove all done tasks</Button>
-                                </NavItem>
-                            </Nav>
+                            </Col>
+                            <Col xs={12} sm={8} md={10}>
+                                <Nav>
+                                    <NavItem>
+                                        <AddTaskModal onClick={this.addTask}/>
+                                    </NavItem>
+                                    <NavItem>
+                                        <Button onClick={()=>this.removeAllDone()}>Remove done</Button>
+                                    </NavItem>
+                                </Nav>
+                            </Col>
                         </Navbar>
                     </Col>
                 </Row>
@@ -199,11 +218,11 @@ export class Todolist extends React.Component {
                             </Panel.Heading>
                             <Panel.Collapse>
                                 <Panel.Body>
-                                    {this.state.tasks.map((el, i) => this.renderTask(i))}
+                                    {this.renderTasks("todayTasks")}
                                 </Panel.Body>
                             </Panel.Collapse>
                         </Panel>
-                        <Panel id="collapsible-panel-example-2" defaultExpanded>
+                        <Panel id="collapsible-panel-example-2">
                             <Panel.Heading>
                                 <Panel.Title toggle>
                                     Zadania na jutro
@@ -211,18 +230,12 @@ export class Todolist extends React.Component {
                             </Panel.Heading>
                             <Panel.Collapse>
                                 <Panel.Body>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
+                                    {this.renderTasks("tomorrowTasks")}
 
                                 </Panel.Body>
                             </Panel.Collapse>
                         </Panel>
-                        <Panel id="collapsible-panel-example-2" defaultExpanded>
+                        <Panel id="collapsible-panel-example-2" >
                             <Panel.Heading>
                                 <Panel.Title toggle>
                                     Zadania na kiedyś
@@ -230,14 +243,7 @@ export class Todolist extends React.Component {
                             </Panel.Heading>
                             <Panel.Collapse>
                                 <Panel.Body>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
-                                    <ToDoItem></ToDoItem>
-
+                                    {this.renderTasks("someDayTasks")}
                                 </Panel.Body>
                             </Panel.Collapse>
                         </Panel>

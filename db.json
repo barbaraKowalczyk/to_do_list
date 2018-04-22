@@ -1,16 +1,24 @@
 {
-  "tasks": [
+  "tomorrowTasks": [],
+  "todayTasks": [],
+  "someDayTasks": [
     {
-      "id": 1,
-      "name": "ssss",
+      "id": "2018-04-22T07:46:37.225Z",
+      "name": "trzecie zadanie",
       "status": "active",
-      "date": "2018-04-21T08:58:46.027Z"
+      "date": "22-04-2018"
     },
     {
-      "id": 2,
-      "name": "sssshjkhkjhk",
+      "id": "2018-04-22T07:53:33.681Z",
+      "name": "test",
       "status": "active",
-      "date": "2018-04-21T08:58:49.273Z"
+      "date": "22-04-2018"
+    },
+    {
+      "id": "2018-04-22T07:53:42.001Z",
+      "name": "test",
+      "status": "active",
+      "date": "22-04-2018"
     }
   ]
 }

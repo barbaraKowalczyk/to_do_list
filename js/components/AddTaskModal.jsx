@@ -4,7 +4,7 @@ import {Radio} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
 import {FormGroup} from 'react-bootstrap'
 import {FormControl} from 'react-bootstrap'
-import {ControlLabel} from 'react-bootstrap'
+import {Form} from 'react-bootstrap'
 
 export class AddTaskModal extends React.Component {
     constructor(props, context) {
@@ -15,7 +15,8 @@ export class AddTaskModal extends React.Component {
 
         this.state = {
             show: false,
-            name:"ssss"
+            name:"",
+            when:"today"
         };
     }
 
@@ -36,11 +37,20 @@ export class AddTaskModal extends React.Component {
         }
     }
 
+
+    handleWhenChange = (event) => {
+        console.log("start")
+        console.log(event.target.value);
+        console.log(this.state.when)
+        this.setState({when: event.target.value});
+    };
+
     handleNewTaskAdd = (e) => {
         if ( typeof this.props.onClick === 'function' ){
             const name = e.target.value.replace(/\d/g,
                 '');
-            this.props.onClick(this.state.name);
+            this.props.onClick(this.state.name, this.state.when);
+            this.setState({ show: false })
         }
     }
     render() {
@@ -54,13 +64,36 @@ export class AddTaskModal extends React.Component {
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Add task</Modal.Title>
+                        <Modal.Title>Dodaj zadanie</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <form>
                             <FormGroup controlId="formInlineName">
-                                <ControlLabel>Task name</ControlLabel>
-                                <FormControl type="text" placeholder="add task name" value={this.state.name} onChange={this.handleNameChange} />
+                                <FormControl type="text" placeholder="wpisz zadanie" value={this.state.name} onChange={this.handleNameChange} />
+                            </FormGroup>
+                            <FormGroup>
+                                    Kiedy zrobisz zadanie? <b>{this.state.value}</b>
+                                    <Radio
+                                        label='Dziś'
+                                        name='radioGroup'
+                                        value='todayTasks'
+                                        checked={this.state.when === 'todayTasks'}
+                                        onChange={this.handleWhenChange}
+                                    > Dziś </Radio>
+                                    <Radio
+                                        label='Jutro'
+                                        name='radioGroup'
+                                        value='tomorrowTasks'
+                                        checked={this.state.when === 'tomorrowTasks'}
+                                        onChange={this.handleWhenChange}
+                                    > Jutro </Radio>
+                                <Radio
+                                    label='Jutro'
+                                    name='radioGroup'
+                                    value='someDayTasks'
+                                    checked={this.state.when === 'someDayTasks'}
+                                    onChange={this.handleWhenChange}
+                                > Kiedyś </Radio>
                             </FormGroup>
                         </form>
                     </Modal.Body>

@@ -11,9 +11,11 @@
   "dependencies": {
     "bootstrap": "^4.1.0",
     "css-loader": "^0.28.11",
+    "moment": "^2.22.1",
     "react": "^15.6.2",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^15.4.0",
+    "react-moment": "^0.7.0",
     "style-loader": "^0.20.3",
     "webpack": "^4.5.0",
     "whatwg-fetch": "^2.0.4"
