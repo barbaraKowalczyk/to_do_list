@@ -60,7 +60,8 @@ export class Todolist extends React.Component {
 
 
 // Update db and state of the task's list
-    getTasks(){
+
+    getTodayTasks(){
         fetch(this.api+"/todayTasks",{
             method:'get',}
         )
@@ -69,16 +70,44 @@ export class Todolist extends React.Component {
                 this.sortByKey(data,"status");
                 this.setState({todayTasks:data});
             });
+    }
+
+    getTomorrowTasks(){
+        let today = moment().format("DD-MM-YYYY");
+        let newToday;
 
         fetch(this.api+"/tomorrowTasks",{
-            method:'get',}
+            method:'get'}
         )
             .then(r => r.json())
             .then( data => {
-                this.sortByKey(data,"status");
-                this.setState({tomorrowTasks:data});
-            });
+                this.sortByKey(data, "status");
+                // check what tasks are still to do tomorrow
+                let tomorrowTasks = data.filter(el => {
+                    return el.date !== today
+                })
+                this.setState({tomorrowTasks: tomorrowTasks});
 
+                // check if there are abt tasks that yesterday were to do tomorrow, so they are today to do today :D
+                // if so delete them from Tomorrow Array and add them to today task's list
+                newToday = data.filter(el => {
+                    return el.date === today
+                })
+                if (newToday.length>0) {
+                    newToday.forEach((el) => {
+                        this.moveTasks(el,"todayTasks", "tomorrowTasks")
+                    });
+
+                }
+            })
+    }
+
+    moveTasks(task, when, from){
+        this.addTask(task.name,when)
+        this.deleteTask(task.id, from)
+    }
+
+    getSomeDayTasks(){
         fetch(this.api+"/someDayTasks",{
             method:'get',}
         )
@@ -89,10 +118,22 @@ export class Todolist extends React.Component {
             });
     }
 
+    getTasks(){
+        this.getSomeDayTasks();
+        this.getTomorrowTasks();
+        this.getTodayTasks();
+    }
+
     addTask = (name,when) => {
-        console.log("dodane"+when)
+        // set when this task should be done
+        let date;
+        if (when==="todayTasks"){
+            date = moment().format("DD-MM-YYYY")}
+        else if (when==="tomorrowTasks"){
+            date = moment().add(1, 'd').format("DD-MM-YYYY")}
+            else date = "some day"
+
         let id = moment();
-        let date = moment().format("DD-MM-YYYY");
 
         let task = {
             id: id,
@@ -116,8 +157,7 @@ export class Todolist extends React.Component {
     }
 
 
-    deleteTask(id,when) {
-        var url = this.api+"/"+when+"/"+id;
+    deleteTask(id, when) {
         var url = this.api+"/"+when+"/"+id;
         fetch(url, {
                 method: 'DELETE',
@@ -177,7 +217,7 @@ export class Todolist extends React.Component {
         let tasks = this.checkArray(when)
         return tasks.map(el => {
             return <ToDoItem
-                value={el.name} status={el.status} date={el.date}
+                value={el.name} status={el.status}
                 delete={() => this.deleteTask(el.id,when)}
                 done={()=>this.doneTask(el.id, when)}
             />

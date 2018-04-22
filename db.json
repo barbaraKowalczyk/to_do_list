@@ -1,24 +1,44 @@
 {
-  "tomorrowTasks": [],
-  "todayTasks": [],
+  "tomorrowTasks": [
+    {
+      "id": "2018-04-22T09:08:29.316Z",
+      "name": "wwwww",
+      "status": "done",
+      "date": "23-04-2018"
+    },
+    {
+      "id": "2018-04-22T09:08:35.454Z",
+      "name": "wwwwwwwwwwww",
+      "status": "done",
+      "date": "23-04-2018"
+    },
+    {
+      "id": "2018-04-22T09:08:39.596Z",
+      "name": "wwwwwwwwwwwwwwwwwwwwww",
+      "status": "done",
+      "date": "23-04-2018"
+    }
+  ],
+  "todayTasks": [
+    {
+      "id": "2018-04-22T09:06:06.439Z",
+      "name": "Chce dzis",
+      "status": "active",
+      "date": "22-04-2018"
+    }
+  ],
   "someDayTasks": [
     {
-      "id": "2018-04-22T07:46:37.225Z",
-      "name": "trzecie zadanie",
+      "id": "2018-04-22T09:04:06.466Z",
+      "name": "",
       "status": "active",
-      "date": "22-04-2018"
+      "date": "some day"
     },
     {
-      "id": "2018-04-22T07:53:33.681Z",
-      "name": "test",
+      "id": "2018-04-22T09:04:12.839Z",
+      "name": "wddadD",
       "status": "active",
-      "date": "22-04-2018"
-    },
-    {
-      "id": "2018-04-22T07:53:42.001Z",
-      "name": "test",
-      "status": "active",
-      "date": "22-04-2018"
+      "date": "some day"
     }
   ]
 }

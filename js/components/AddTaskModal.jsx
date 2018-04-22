@@ -4,7 +4,6 @@ import {Radio} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
 import {FormGroup} from 'react-bootstrap'
 import {FormControl} from 'react-bootstrap'
-import {Form} from 'react-bootstrap'
 
 export class AddTaskModal extends React.Component {
     constructor(props, context) {
@@ -39,9 +38,6 @@ export class AddTaskModal extends React.Component {
 
 
     handleWhenChange = (event) => {
-        console.log("start")
-        console.log(event.target.value);
-        console.log(this.state.when)
         this.setState({when: event.target.value});
     };
 

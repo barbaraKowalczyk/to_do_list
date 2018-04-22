@@ -8,9 +8,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/components/ToDoItem.jsx" afterPath="$PROJECT_DIR$/js/components/ToDoItem.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/components/Todolist.jsx" afterPath="$PROJECT_DIR$/js/components/Todolist.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/out.js" afterPath="$PROJECT_DIR$/out/out.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,8 +24,8 @@
       <file leaf-file-name="Todolist.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/components/Todolist.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="62" column="7" lean-forward="false" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+            <state relative-caret-position="328">
+              <caret line="234" column="55" lean-forward="true" selection-start-line="234" selection-start-column="55" selection-end-line="234" selection-end-column="55" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -50,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/js/components/ToDoItem.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="13" column="55" lean-forward="false" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+              <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -61,12 +58,9 @@
       <file leaf-file-name="db.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-              <folding>
-                <marker date="1524383622000" expanded="true" signature="0:464" ph="{...}" />
-                <marker date="1524383622000" expanded="true" signature="21:22" ph="[...]" />
-              </folding>
+            <state relative-caret-position="30">
+              <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,8 +68,8 @@
       <file leaf-file-name="AddTaskModal.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/components/AddTaskModal.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="83" column="49" lean-forward="true" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
+            <state relative-caret-position="75">
+              <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -110,7 +104,6 @@
       <find>consol</find>
       <find>set</find>
       <find>filter</find>
-      <find>mome</find>
       <find>cons</find>
       <find>getM</find>
       <find>add</find>
@@ -120,6 +113,9 @@
       <find>from</find>
       <find>console</find>
       <find>remo</find>
+      <find>mome</find>
+      <find>getT</find>
+      <find>RENDER</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/sass</dir>
@@ -157,10 +153,10 @@
         <option value="$PROJECT_DIR$/out/style.css" />
         <option value="$PROJECT_DIR$/sass/style.scss" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/js/components/ConfirmSuccess.jsx" />
         <option value="$PROJECT_DIR$/js/components/ToDoItem.jsx" />
         <option value="$PROJECT_DIR$/db.json" />
         <option value="$PROJECT_DIR$/js/components/AddTaskModal.jsx" />
-        <option value="$PROJECT_DIR$/js/components/ConfirmSuccess.jsx" />
         <option value="$PROJECT_DIR$/js/components/Todolist.jsx" />
       </list>
     </option>
@@ -182,8 +178,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-6" />
-    <option name="y" value="92" />
+    <option name="x" value="-122" />
+    <option name="y" value="31" />
     <option name="width" value="1280" />
     <option name="height" value="773" />
   </component>
@@ -309,15 +305,15 @@
       <workItem from="1524249976060" duration="11035000" />
       <workItem from="1524295442771" duration="5757000" />
       <workItem from="1524302496544" duration="10621000" />
-      <workItem from="1524331152129" duration="6859000" />
+      <workItem from="1524331152129" duration="11224000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75471000" />
+    <option name="totallyTimeSpent" value="79836000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="92" width="1280" height="773" extended-state="0" />
+    <frame x="-122" y="31" width="1280" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -414,6 +410,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -453,6 +450,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -531,6 +529,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -538,6 +537,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -585,6 +585,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -596,42 +597,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding>
-            <marker date="1524383622000" expanded="true" signature="0:464" ph="{...}" />
-            <marker date="1524383622000" expanded="true" signature="21:22" ph="[...]" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/components/ToDoItem.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="55" lean-forward="false" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/components/ConfirmSuccess.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="45" column="63" lean-forward="true" selection-start-line="45" selection-start-column="63" selection-end-line="45" selection-end-column="63" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/components/AddTaskModal.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="83" column="49" lean-forward="true" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -643,10 +613,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/components/ToDoItem.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/components/AddTaskModal.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/components/Todolist.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="62" column="7" lean-forward="false" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+        <state relative-caret-position="328">
+          <caret line="234" column="55" lean-forward="true" selection-start-line="234" selection-start-column="55" selection-end-line="234" selection-end-column="55" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
